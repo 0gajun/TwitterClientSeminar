@@ -34,12 +34,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+/*
 - (IBAction)tweetAction:(id)sender {
     ACAccountStore *accountStore = [[ACAccountStore alloc]init];
     ACAccount *account = [accountStore accountWithIdentifier:self.identifier];
     NSString 
     
 }
+ */
 
 /*
 #pragma mark - Navigation
