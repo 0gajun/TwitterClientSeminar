@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
+#import "TweetSheetViewController.h"
 #import "TimeLineTableViewController.h"
+#import "TweetSheetViewController.h"
+#import "YurutterTimeLineTableViewController.h"
 
 @interface ViewController : UIViewController <UIAccelerometerDelegate>
 

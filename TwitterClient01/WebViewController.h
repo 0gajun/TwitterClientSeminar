@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 @interface WebViewController : UIViewController<UIWebViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 @property NSURL *openURL;
 
 @end

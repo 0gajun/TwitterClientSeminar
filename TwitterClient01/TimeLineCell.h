@@ -16,7 +16,7 @@
 @property UIImageView *profileImageView;
 @property UIImage *image;
 @property int tweetTextLabelHeight;
-
+@property UIView *view;
 
 
 

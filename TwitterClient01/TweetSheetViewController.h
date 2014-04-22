@@ -13,10 +13,25 @@
 @interface TweetSheetViewController : UIViewController
 
 @property NSString *identifier;
+@property UIImage *image;
+@property NSString *name;
+
+@property NSString *reply;
+
+
 
 @property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+
 @property ACAccountStore *accountStore;
 
--(IBAction)tweetActoin :(id)sender;
 
+
+
+-(IBAction)tweetAction :(id)sender;
+- (IBAction)cancelAction:(id)sender;
 @end

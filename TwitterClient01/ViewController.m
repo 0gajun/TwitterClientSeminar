@@ -11,6 +11,7 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *tweetActionButton;
 @property (weak, nonatomic) IBOutlet UILabel *accountDisplayLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 
 @property ACAccountStore *accountStore;
 @property NSArray *twitterAccounts;
@@ -38,7 +39,7 @@
                         ACAccount *account = self.twitterAccounts[0];
                         self.identifier = account.identifier;
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            self.accountDisplayLabel.text = account.username;
+                            [self getProfile];
                         });
                     } else {
                         dispatch_async(dispatch_get_main_queue(), ^{
@@ -51,6 +52,7 @@
                         self.accountDisplayLabel.text = @"アカウント認証エラー";
                     });
                 }
+                
     }];
 }
 
@@ -59,19 +61,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)tweetAction:(id)sender{
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
-        NSString *serviceType = SLServiceTypeTwitter;
-        SLComposeViewController *composeCtl = [SLComposeViewController
-                                               composeViewControllerForServiceType:serviceType];
-            [composeCtl setCompletionHandler:^(SLComposeViewControllerResult result){
-                if (result == SLComposeViewControllerResultDone) {
-                    
-                }
-            }];
-        [self presentViewController:composeCtl animated:YES completion:NULL];
-    }
-}
+
+
+
 
 - (IBAction)setAccountAction:(id)sender {
     
@@ -94,13 +86,58 @@
         if (buttonIndex != self.twitterAccounts.count) {
             ACAccount *account = self.twitterAccounts[buttonIndex];
             self.identifier = account.identifier;
-            self.accountDisplayLabel.text = account.username;
+            [self getProfile];
             NSLog(@"Account set! %@", account.username);
         } else {
             NSLog(@"cancel!");
         }
     }
 }
+
+-(void)getProfile
+{
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    ACAccount *account = [accountStore accountWithIdentifier:self.identifier];
+    
+    self.accountDisplayLabel.text = account.username;
+    
+    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/users/show.json"];
+    NSDictionary *params = @{@"screen_name" : account.username};
+    SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:url parameters:params];
+    
+    [request setAccount:account];
+    
+    UIApplication *application = [UIApplication sharedApplication];
+    application.networkActivityIndicatorVisible = YES;
+    
+    [request performRequestWithHandler:^(NSData *responseData,
+                                         NSHTTPURLResponse *urlResponse,
+                                         NSError *error) {
+        NSData *data;
+        if (responseData) {
+            NSInteger statusCode = urlResponse.statusCode;
+            if (statusCode >= 200 && statusCode < 300) {
+                NSDictionary *jsonData =
+                [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:NULL];
+                NSString *url = jsonData[@"profile_image_url_https"];
+                data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+                
+                NSLog(@"[SUCCESS!] Got Profile Image!: %@", jsonData[@"profile_image_url_https"]);
+            } else {
+                NSLog(@"[Error] Server responded: status code %d %@", statusCode, [NSHTTPURLResponse localizedStringForStatusCode:statusCode]);
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIApplication *application = [UIApplication sharedApplication];
+            application.networkActivityIndicatorVisible = NO;
+            self.profileImageView.image = [[UIImage alloc] initWithData:data];
+        });
+    }];
+    
+    
+    
+}
+
 
 //segue間での情報の受渡しの常套手段。
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -109,6 +146,16 @@
         if ([timeLineTableViewController isKindOfClass:[timeLineTableViewController class]]) {
             timeLineTableViewController.identifier = self.identifier;
 
+        }
+    } else if ([[segue identifier] isEqualToString:@"TweetSheetSegue"]) {
+        TweetSheetViewController *tweetSheetViewController = segue.destinationViewController;
+        if ([tweetSheetViewController isKindOfClass:[tweetSheetViewController class] ]) {
+            tweetSheetViewController.identifier = self.identifier;
+        }
+    } else if ([[segue identifier] isEqualToString:@"YurutterTimeLineViewControllerSegue"]) {
+        YurutterTimeLineTableViewController *yurutter = segue.destinationViewController;
+        if ([yurutter isKindOfClass:[yurutter class] ]) {
+            yurutter.identifier = self.identifier;
         }
     }
 }

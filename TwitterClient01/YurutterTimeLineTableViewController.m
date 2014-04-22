@@ -1,23 +1,24 @@
 //
-//  TimeLineTableViewController.m
+//  YurutterTimeLineTableViewController.m
 //  TwitterClient01
 //
-//  Created by OGA-Mac on 2014/04/12.
+//  Created by OGA-Mac on 2014/04/21.
 //  Copyright (c) 2014年 ogasawara.com. All rights reserved.
 //
 
-#import "TimeLineTableViewController.h"
+#import "YurutterTimeLineTableViewController.h"
 
-@interface TimeLineTableViewController ()
+@interface YurutterTimeLineTableViewController ()
+
 @property dispatch_queue_t mainQueue;
 @property dispatch_queue_t imageQueue;
 
 @property NSString *httpErrorMessage;
-@property NSArray *timeLineData;
+@property NSMutableArray *timeLineData;
 
 @end
 
-@implementation TimeLineTableViewController
+@implementation YurutterTimeLineTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,11 +38,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-   
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(onRefresh:) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refreshControl;
-    
     
     [self.tableView registerClass:[TimeLineCell class] forCellReuseIdentifier:@"TimeLineCell"];
     
@@ -158,7 +154,6 @@
     CGFloat tweetTextLabelHeight = [self labelHeight:tweetText];
     return tweetTextLabelHeight + 50;
 }
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -222,6 +217,7 @@
     
 }
 
+
 -(void)getTweet
 {
     self.mainQueue = dispatch_get_main_queue();
@@ -250,13 +246,12 @@
             if (urlResponse.statusCode >= 200 && urlResponse.statusCode < 300) {
                 NSError *jsonError;
                 self.timeLineData =
-                [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:&jsonError];
-                
-                NSLog(@"timeLineData:%@",self.timeLineData);
+                [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:&jsonError];
                 
                 if (self.timeLineData) {
                     //NSLog(@"Timeline Responce: %@\n", self.timeLineData);
                     dispatch_async(self.mainQueue, ^{
+                        [self yurutterAlgo];
                         [self.tableView reloadData];
                     });
                 } else {
@@ -270,8 +265,25 @@
         dispatch_async(self.mainQueue, ^{
             UIApplication *application = [UIApplication sharedApplication];
             application.networkActivityIndicatorVisible = NO;
+            
         });
     }];
+}
+
+-(void)yurutterAlgo
+{
+    NSLog(@"Before YurutterAlgo:number of timelinedataObjects%d",self.timeLineData.count);
+    int number = self.timeLineData.count;
+    if (number <= 25) {
+        return;
+    }
+    srand((unsigned)time(NULL));
+    for (int i = 1; i <= number - 25; i++) {
+        int j = rand() % (number + 1 - i);
+        [self.timeLineData removeObjectAtIndex:j];
+    }
+    NSLog(@"After YurutterAlgo:number of timelinedataObjects%d",self.timeLineData.count);
+    
 }
 
 -(void)onRefresh:(id)sender
@@ -282,5 +294,6 @@
     
     [self.refreshControl endRefreshing];
 }
+
 
 @end

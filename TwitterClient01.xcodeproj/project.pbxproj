@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B331F80C1903E6DB009CC5B8 /* notfavorited.png in Resources */ = {isa = PBXBuildFile; fileRef = B331F80B1903E6DB009CC5B8 /* notfavorited.png */; };
+		B331F80E1903E816009CC5B8 /* action-undo-8x.png in Resources */ = {isa = PBXBuildFile; fileRef = B331F80D1903E816009CC5B8 /* action-undo-8x.png */; };
+		B331F8101903F0AE009CC5B8 /* favorited.png in Resources */ = {isa = PBXBuildFile; fileRef = B331F80F1903F0AE009CC5B8 /* favorited.png */; };
+		B331F813190489A4009CC5B8 /* YurutterTimeLineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B331F812190489A4009CC5B8 /* YurutterTimeLineTableViewController.m */; };
+		B331F8161904BA73009CC5B8 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B331F8151904BA73009CC5B8 /* UserInfoViewController.m */; };
 		B365585018F9418900194ABA /* TimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B365584F18F9418900194ABA /* TimeLineCell.m */; };
+		B371EF301902AEF700737643 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B371EF2F1902AEF700737643 /* WebViewController.m */; };
 		B37EABF619012D350015BC24 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EABF519012D350015BC24 /* DetailViewController.m */; };
+		B39461DC1903851C00F60CE7 /* loop-8x.png in Resources */ = {isa = PBXBuildFile; fileRef = B39461DB1903851C00F60CE7 /* loop-8x.png */; };
 		B3E6405B18F8F61600001AE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3E6405A18F8F61600001AE8 /* Foundation.framework */; };
 		B3E6405D18F8F61600001AE8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3E6405C18F8F61600001AE8 /* CoreGraphics.framework */; };
 		B3E6405F18F8F61600001AE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3E6405E18F8F61600001AE8 /* UIKit.framework */; };
@@ -25,7 +32,6 @@
 		B3E6408618F8F61600001AE8 /* TwitterClient01Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E6408518F8F61600001AE8 /* TwitterClient01Tests.m */; };
 		B3E6409118F912E600001AE8 /* TimeLineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E6409018F912E600001AE8 /* TimeLineTableViewController.m */; };
 		B3F86CA11902422D00EB0AAA /* TweetSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F86CA01902422D00EB0AAA /* TweetSheetViewController.m */; };
-		B3F86CA41902477E00EB0AAA /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F86CA31902477E00EB0AAA /* WebViewController.m */; };
 		B3F86CA719024C9400EB0AAA /* MyUIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F86CA619024C9400EB0AAA /* MyUIApplication.m */; };
 /* End PBXBuildFile section */
 
@@ -40,10 +46,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B331F80B1903E6DB009CC5B8 /* notfavorited.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = notfavorited.png; path = Images.xcassets/notfavorited.png; sourceTree = "<group>"; };
+		B331F80D1903E816009CC5B8 /* action-undo-8x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "action-undo-8x.png"; path = "Images.xcassets/action-undo-8x.png"; sourceTree = "<group>"; };
+		B331F80F1903F0AE009CC5B8 /* favorited.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favorited.png; path = Images.xcassets/favorited.png; sourceTree = "<group>"; };
+		B331F811190489A4009CC5B8 /* YurutterTimeLineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YurutterTimeLineTableViewController.h; sourceTree = "<group>"; };
+		B331F812190489A4009CC5B8 /* YurutterTimeLineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YurutterTimeLineTableViewController.m; sourceTree = "<group>"; };
+		B331F8141904BA73009CC5B8 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		B331F8151904BA73009CC5B8 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		B365584E18F9418900194ABA /* TimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineCell.h; sourceTree = "<group>"; };
 		B365584F18F9418900194ABA /* TimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineCell.m; sourceTree = "<group>"; };
+		B371EF2F1902AEF700737643 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		B37EABF419012D350015BC24 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		B37EABF519012D350015BC24 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		B39461DB1903851C00F60CE7 /* loop-8x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loop-8x.png"; path = "Images.xcassets/loop-8x.png"; sourceTree = "<group>"; };
 		B3E6405718F8F61600001AE8 /* TwitterClient01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E6405A18F8F61600001AE8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B3E6405C18F8F61600001AE8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -68,7 +83,6 @@
 		B3F86C9F1902422D00EB0AAA /* TweetSheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetSheetViewController.h; sourceTree = "<group>"; };
 		B3F86CA01902422D00EB0AAA /* TweetSheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetSheetViewController.m; sourceTree = "<group>"; };
 		B3F86CA21902477E00EB0AAA /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		B3F86CA31902477E00EB0AAA /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		B3F86CA519024C9400EB0AAA /* MyUIApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUIApplication.h; sourceTree = "<group>"; };
 		B3F86CA619024C9400EB0AAA /* MyUIApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUIApplication.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +111,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B39461DD1903854000F60CE7 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				B331F80F1903F0AE009CC5B8 /* favorited.png */,
+				B331F80D1903E816009CC5B8 /* action-undo-8x.png */,
+				B331F80B1903E6DB009CC5B8 /* notfavorited.png */,
+				B39461DB1903851C00F60CE7 /* loop-8x.png */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
 		B3E6404E18F8F61600001AE8 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +161,7 @@
 				B3E6406F18F8F61600001AE8 /* ViewController.h */,
 				B3E6407018F8F61600001AE8 /* ViewController.m */,
 				B3E6407218F8F61600001AE8 /* Images.xcassets */,
+				B39461DD1903854000F60CE7 /* image */,
 				B3E6406118F8F61600001AE8 /* Supporting Files */,
 				B3E6408F18F912E600001AE8 /* TimeLineTableViewController.h */,
 				B3E6409018F912E600001AE8 /* TimeLineTableViewController.m */,
@@ -146,9 +172,13 @@
 				B3F86C9F1902422D00EB0AAA /* TweetSheetViewController.h */,
 				B3F86CA01902422D00EB0AAA /* TweetSheetViewController.m */,
 				B3F86CA21902477E00EB0AAA /* WebViewController.h */,
-				B3F86CA31902477E00EB0AAA /* WebViewController.m */,
+				B371EF2F1902AEF700737643 /* WebViewController.m */,
 				B3F86CA519024C9400EB0AAA /* MyUIApplication.h */,
 				B3F86CA619024C9400EB0AAA /* MyUIApplication.m */,
+				B331F811190489A4009CC5B8 /* YurutterTimeLineTableViewController.h */,
+				B331F812190489A4009CC5B8 /* YurutterTimeLineTableViewController.m */,
+				B331F8141904BA73009CC5B8 /* UserInfoViewController.h */,
+				B331F8151904BA73009CC5B8 /* UserInfoViewController.m */,
 			);
 			path = TwitterClient01;
 			sourceTree = "<group>";
@@ -258,7 +288,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B331F8101903F0AE009CC5B8 /* favorited.png in Resources */,
 				B3E6407318F8F61600001AE8 /* Images.xcassets in Resources */,
+				B331F80E1903E816009CC5B8 /* action-undo-8x.png in Resources */,
+				B331F80C1903E6DB009CC5B8 /* notfavorited.png in Resources */,
+				B39461DC1903851C00F60CE7 /* loop-8x.png in Resources */,
 				B3E6406518F8F61600001AE8 /* InfoPlist.strings in Resources */,
 				B3E6406E18F8F61600001AE8 /* Main.storyboard in Resources */,
 			);
@@ -279,11 +313,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B331F813190489A4009CC5B8 /* YurutterTimeLineTableViewController.m in Sources */,
 				B365585018F9418900194ABA /* TimeLineCell.m in Sources */,
 				B3F86CA11902422D00EB0AAA /* TweetSheetViewController.m in Sources */,
 				B3E6407118F8F61600001AE8 /* ViewController.m in Sources */,
 				B3F86CA719024C9400EB0AAA /* MyUIApplication.m in Sources */,
-				B3F86CA41902477E00EB0AAA /* WebViewController.m in Sources */,
+				B371EF301902AEF700737643 /* WebViewController.m in Sources */,
+				B331F8161904BA73009CC5B8 /* UserInfoViewController.m in Sources */,
 				B3E6406B18F8F61600001AE8 /* AppDelegate.m in Sources */,
 				B3E6409118F912E600001AE8 /* TimeLineTableViewController.m in Sources */,
 				B3E6406718F8F61600001AE8 /* main.m in Sources */,

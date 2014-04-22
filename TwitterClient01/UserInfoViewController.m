@@ -1,20 +1,18 @@
 //
-//  WebViewController.m
+//  UserInfoViewController.m
 //  TwitterClient01
 //
-//  Created by OGA-Mac on 2014/04/19.
+//  Created by OGA-Mac on 2014/04/21.
 //  Copyright (c) 2014年 ogasawara.com. All rights reserved.
 //
 
-#import "WebViewController.h"
+#import "UserInfoViewController.h"
 
-@interface WebViewController ()
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
-
+@interface UserInfoViewController ()
 
 @end
 
-@implementation WebViewController
+@implementation UserInfoViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,28 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     // Do any additional setup after loading the view.
-    
-    self.webView.delegate = self;
-    
-    NSURLRequest *myRequest = [NSURLRequest requestWithURL:self.openURL];
-    [self.webView loadRequest:myRequest];
-    
-    
-    
-}
-
--(void)webViewDidStartLoad:(UIWebView *)webView
-{
-    [self.activityIndicator startAnimating];
-}
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    [self.activityIndicator stopAnimating];
-}
--(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-    [self.activityIndicator stopAnimating];
 }
 
 - (void)didReceiveMemoryWarning
